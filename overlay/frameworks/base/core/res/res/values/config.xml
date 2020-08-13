@@ -505,4 +505,7 @@
         Z
     </string>
 
+    <!-- Multi Colors LED Support -->
+    <bool name="config_multiColorBatteryLed">false</bool>
+
 </resources>
