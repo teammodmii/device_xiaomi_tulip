@@ -17,8 +17,9 @@
 
 set -e
 
-DEVICE_COMMON=sdm660-common
-VENDOR=xiaomi
+export DEVICE=tulip
+export VENDOR=xiaomi
+export DEVICE_BRINGUP_YEAR=2019
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -94,5 +95,7 @@ if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
     extract "$MY_DIR"/../$DEVICE/proprietary-files.txt "$SRC" \
     "${KANG}" --section "${SECTION}"
 fi
+
+patchelf --add-needed libcamera_sdm660_shim.so "$DEVICE_BLOB_ROOT"/vendor/lib/hw/camera.sdm660.so
 
 "$MY_DIR"/setup-makefiles.sh

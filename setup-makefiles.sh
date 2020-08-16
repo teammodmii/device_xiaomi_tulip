@@ -17,8 +17,9 @@
 
 set -e
 
-DEVICE_COMMON=sdm660-common
-VENDOR=xiaomi
+export DEVICE=tulip
+export VENDOR=xiaomi
+export DEVICE_BRINGUP_YEAR=2019
 
 INITIAL_COPYRIGHT_YEAR=2018
 
@@ -39,7 +40,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "jasmine_sprout jason lavender twolip wayne whyred"
+write_headers "jasmine_sprout jason lavender tulip wayne whyred"
 
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
